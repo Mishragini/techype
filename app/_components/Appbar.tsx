@@ -22,7 +22,7 @@ const AppBar = () => {
 
     return (
         <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 py-1">
                 <div className="flex items-center justify-between h-16">
                     <Link href="/" className="flex items-center">
                         <div className='bg-black p-1 rounded'>
@@ -68,7 +68,7 @@ const AppBar = () => {
                             Contact Us
                         </Link>
                         <div className="lg:hidden">
-                            <button onClick={toggleMobileMenu} className="text-gray-700 hover:text-indigo-500 ml-6">
+                            <button onClick={toggleMobileMenu} className="text-gray-900 ml-6">
                                 {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                             </button>
                         </div>
