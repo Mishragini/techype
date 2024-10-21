@@ -7,7 +7,7 @@ const HeroSection = () => {
             <div className="relative z-10 ml-32 max-w-2xl">
                 <h1 className="text-5xl font-semibold mb-6">
                     Hype Your Ideas<br />
-                    With <span className="text-[#8B3DFF]">Techype</span>
+                    With <span className="text-blue-700">Techype</span>
                 </h1>
                 <p className="mb-8 text-gray-700 text-base leading-relaxed max-w-[700px]">
                     As the most trusted AI software developer, we create unique AI solutions, innovative mobile
