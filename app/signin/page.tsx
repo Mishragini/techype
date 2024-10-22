@@ -24,6 +24,7 @@ export default function SignIn() {
                 method: 'POST',
                 headers: {
                     'userid': userId!,
+                    'token': token!
                 },
             });
             Cookies.remove('token');
