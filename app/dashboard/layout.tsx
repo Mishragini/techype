@@ -1,11 +1,31 @@
-import React, { ReactNode } from 'react';
-import SignOutButton from '../_components/SignOutButton';
+'use client';
+
+import React, { ReactNode, useEffect } from 'react';
+import { useAuth } from "../_components/AuthProvider";
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 interface DashboardLayoutProps {
     children: ReactNode;
 }
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
+    const { logout, user } = useAuth();
+    const router = useRouter();
+
+    useEffect(() => {
+        const token = Cookies.get('token');
+        const userId = Cookies.get('userId');
+
+        if (!token || !userId) {
+            router.push('/signin');
+        }
+    }, [router]);
+
+    if (!user) {
+        return null; // or a loading spinner
+    }
+
     return (
         <div className="flex h-screen bg-gray-100">
             {/* Left Sidebar */}
@@ -25,8 +45,16 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
             <div className="flex flex-col flex-1">
                 {/* Top Bar */}
                 <header className="bg-white shadow-md h-16 flex items-center justify-between px-6">
-                    <h1 className="text-xl font-semibold">Welcome, User</h1>
-                    <SignOutButton />
+                    <h1 className="text-xl font-semibold">Welcome {user.username}</h1>
+                    <button
+                        onClick={async () => {
+                            await logout();
+                            router.push('/signin');
+                        }}
+                        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                    >
+                        Logout
+                    </button>
                 </header>
 
                 {/* Main Content */}

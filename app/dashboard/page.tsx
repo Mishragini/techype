@@ -1,12 +1,8 @@
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+
+
 
 const DashboardPage: React.FC = async () => {
-    const session = await getServerSession();
-
-    if (!session) {
-        redirect("/auth/signin");
-    }
+    
     return (
         <div>
             <h1>Dashboard Content</h1>

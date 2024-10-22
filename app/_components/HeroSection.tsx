@@ -1,6 +1,9 @@
+'use client'
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const HeroSection = () => {
+    const router = useRouter()
     return (
         <section className="relative flex items-center justify-between h-[600px]">
             {/* Left Content */}
@@ -14,13 +17,15 @@ const HeroSection = () => {
                     apps, and help you hire top global engineers, solving all your tech problems and bringing
                     your ideas to life.
                 </p>
-                <button className="bg-[#12141D] text-white py-3 px-6 rounded-full hover:bg-gray-800 transition">
+                <button onClick={() => {
+                    router.push('/dashboard')
+                }} className="bg-[#12141D] text-white py-3 px-6 rounded-full hover:bg-gray-800 transition">
                     Schedule Call
                 </button>
             </div>
 
             {/* Right Image */}
-            <div className="absolute top-0 right-0 w-[55%] h-full z-0">
+            <div className="absolute top-0 right-0 w-[55%] h-full z-0 hidden md:block">
                 <Image
                     src="/hero.png"
                     alt="Team collaborating"

@@ -66,7 +66,7 @@ const PortfolioCarousel = () => {
                         </p>
                     </div>
 
-                    <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-[400px] m-10">
+                    <div className=" md:w-full lg:w-1/2 relative min-h-[300px] lg:min-h-[400px] m-10">
                         <Image
                             src={projects[currentSlide].image}
                             alt="Project screenshot"
